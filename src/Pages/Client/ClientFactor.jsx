@@ -1,8 +1,7 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 
 
 export default function ClientFactor() {
-    const [factorData, setFactorData] = useState("")
     const factorOBJ = JSON.parse(localStorage.getItem("factor"))
 
     return (

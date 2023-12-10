@@ -12,7 +12,7 @@ export default function AdminPanel() {
 
 
   useEffect(() => {
-    document.title = 'پنل مدیریت';
+    document.title = 'ساخت فاکتور';
   }, [])
 
 
@@ -64,8 +64,8 @@ export default function AdminPanel() {
                     </svg>
                   </div>
                 </div>
-                
-                
+
+
 
               </div>
             </div>

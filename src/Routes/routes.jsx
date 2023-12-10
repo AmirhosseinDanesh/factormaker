@@ -1,6 +1,4 @@
 import ClientFactor from "../Pages/Client/ClientFactor";
-
-
 import AdminPanel from "../Pages/Admin-panel/AdminPanel";
 import Factor from "../Pages/Admin-panel/Factor/Factor";
 

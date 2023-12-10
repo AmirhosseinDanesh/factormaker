@@ -48,13 +48,13 @@ export default function AdminPanel() {
 
                 <div>
                   <div className='py-3' id='toggle-theme' onClick={() => {
-                    if (localStorage.theme === 'dark') {
-                      document.documentElement.classList.remove('dark')
-                      localStorage.theme = "light"
-                    } else {
-                      document.documentElement.classList.add('dark')
-                      localStorage.setItem("theme", "dark")
-                    }
+                    // if (localStorage.theme === 'dark') {
+                    //   document.documentElement.classList.remove('dark')
+                    //   localStorage.theme = "light"
+                    // } else {
+                    //   document.documentElement.classList.add('dark')
+                    //   localStorage.setItem("theme", "dark")
+                    // }
                   }} >
                     <svg className='w-5 h-6 md:w-7 md:h-7  inline-block dark:hidden' xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" d="M21.752 15.002A9.718 9.718 0 0118 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 003 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 009.002-5.998z" />
@@ -87,7 +87,7 @@ export default function AdminPanel() {
         <div className="h-full px-3 pb-4 overflow-y-auto bg-white dark:bg-gray-800">
           <ul className="space-y-2 text-xs md:text-base font-medium">
             <li>
-              <NavLink to="/p-admin/factor" className={({ isActive }) => (isActive ? "flex items-center p-2 rounded-lg dark:text-white hover:bg-gray-700 dark:hover:bg-gray-700 bg-gray-700 text-white dark:bg-gray-500 " : "flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700")}>
+              <NavLink to="/p-admin/factor-v1" className={({ isActive }) => (isActive ? "flex items-center p-2 rounded-lg dark:text-white hover:bg-gray-700 dark:hover:bg-gray-700 bg-gray-700 text-white dark:bg-gray-500 " : "flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700")}>
                 <svg className="w-5 h-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" >
                   <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 12l8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25" />
                 </svg>

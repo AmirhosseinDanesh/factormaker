@@ -11,7 +11,7 @@ const routes = [
         path: "/p-admin/*",
         element: <AdminPanel /> ,
         children: [
-            { path: "factor", element: <Factor /> },
+            { path: "factor-v1", element: <Factor /> },
         ]
     },
 ]

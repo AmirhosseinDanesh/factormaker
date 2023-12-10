@@ -1,9 +1,8 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 
 
 export default function ClientFactor() {
     const factorOBJ = JSON.parse(localStorage.getItem("factor"))
-
     return (
         <div className='w-[895px] mx-auto mt-20 font-Iransans'>
             <div className='font-IransansBold text-xl text-center'>{factorOBJ?.factorName}</div>

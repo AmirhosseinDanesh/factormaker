@@ -1,0 +1,275 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  @font-face {
+    font-family: "Dana";
+    src: local("Dana"),
+      url("/fonts/Dana/woff2/DanaFaNum-Regular.woff2") format("woff2");
+    font-display: swap;
+  }
+  @font-face {
+    font-family: "Dana Medium";
+    src: local("Dana Medium"),
+      url("/fonts/Dana/woff2/DanaFaNum-Medium.woff2") format("woff2");
+    font-display: swap;
+  }
+  @font-face {
+    font-family: "Dana Bold";
+    src: local("Dana Bold"),
+      url("/fonts/Dana/woff2/DanaFaNum-DemiBold.woff2") format("woff2");
+    font-display: swap;
+  }
+  @font-face {
+    font-family: "Iransans";
+    src: local("Iransans"),
+      url("/fonts/Iransans/IRANSansWeb.woff2") format("woff2");
+    font-display: swap;
+  }
+  @font-face {
+    font-family: "Iransans Medium";
+    src: local("Iransans Medium"),
+      url("/fonts/Iransans/DanaFaNum-Medium.woff2") format("woff2");
+    font-display: swap;
+  }
+  @font-face {
+    font-family: "Iransans Bold";
+    src: local("Iransans Bold"),
+      url("/fonts/Iransans/IRANSansWeb_Bold.woff2") format("woff2");
+    font-display: swap;
+  }
+}
+
+@layer components {
+  .sidemenu {
+    @apply hidden flex-col gap-y-6 pr-8 mt-3;
+  }
+  .sidemenu--open {
+    @apply flex;
+  }
+  .submenu--active {
+    padding-right: 10px;
+    position: relative;
+    color: #fdba74;
+  }
+
+  .submenu--active::after {
+    content: "";
+    display: block;
+    width: 5px;
+    height: 5px;
+    border-radius: 100px;
+    background-color: #fdba74;
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+  }
+  .userpanel-li {
+    @apply flex justify-center p-2 my-3 md:my-5 text-gray-900 bg-zinc-200 hover:bg-zinc-300 dark:bg-gray-700 dark:text-gray-200 dark:hover:bg-gray-800 rounded-lg transition-colors text-center;
+  }
+
+  @media screen and (min-width: 1280px) {
+    html.dark .products-section {
+      background-image: url("../images/product-bg.png");
+    }
+    .products-section {
+      background: linear-gradient(
+          rgba(243, 244, 246, 0.65),
+          rgba(243, 244, 246, 0.65)
+        ),
+        url("../images/product-bg.png");
+      background-size: 100%;
+      background-repeat: no-repeat;
+    }
+  }
+
+  .category-baner1 {
+    background: linear-gradient(
+        270deg,
+        rgba(0, 0, 0, 0.8) 30%,
+        rgba(0, 0, 0, 0.2) 100%
+      ),
+      url("../images/categories/category-right.jpg") !important;
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+  .category-baner2 {
+    background: linear-gradient(
+        270deg,
+        rgba(0, 0, 0, 0.8) 30%,
+        rgba(0, 0, 0, 0.2) 100%
+      ),
+      url("../images/categories/category-left.jpg") !important;
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+
+  .services {
+    @apply relative;
+  }
+  .services::after,
+  .services::before {
+    content: "";
+    display: block;
+    position: absolute;
+    inset: 0;
+    margin: auto;
+    background-color: #d1d5d8;
+  }
+
+  @media screen and (min-width: 480px) {
+    .services::after,
+    .services::before {
+      content: none;
+    }
+  }
+
+  html.dark .services::after,
+  html.dark .services::before {
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+  .services::after {
+    width: 1px;
+    height: calc(100% + 1.25rem);
+  }
+  .services::before {
+    width: calc(100% - 2rem);
+    height: 1px;
+  }
+}
+
+@layer utilities {
+  .flex-center {
+    @apply flex justify-center items-center;
+  }
+  .active-swiper-custom {
+    @apply flex-center w-9 h-9 md:w-10 md:h-10 bg-white dark:bg-zinc-700 text-zinc-700 dark:text-white rounded-full shadow-normal transition-all hover:bg-gray-300 dark:hover:bg-white dark:hover:text-zinc-700 cursor-pointer;
+  }
+  .disable-swiper-custom {
+    @apply flex-center w-9 h-9 md:w-10 md:h-10 bg-gray-100 dark:bg-zinc-600 text-zinc-700 dark:text-gray-400 rounded-full transition-all;
+  }
+  .ltr-text {
+    direction: ltr;
+    text-align: left;
+  }
+}
+
+.input {
+  @apply bg-gray-50 border border-gray-300 text-gray-900 text-xs md:text-sm rounded-lg  focus:border-red-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white  dark:focus:border-blue-500;
+}
+.input-label {
+  @apply block mb-2 text-xs md:text-sm text-gray-900 dark:text-white font-DanaMedium;
+}
+.input-submit {
+  @apply w-full transition-colors rounded-lg text-sm px-5 py-2.5 text-center font-DanaMedium text-white;
+}
+
+.swal-title {
+  font-size: 1rem;
+}
+.swal-footer {
+  display: flex;
+  justify-content: center;
+}
+
+
+
+.swiper.mySwiper {
+  overflow: inherit !important;
+}
+
+.offer {
+  @apply relative;
+}
+.offer::after {
+  content: "";
+  width: 75%;
+  height: 1px;
+  position: absolute;
+  inset: 0;
+  margin: auto;
+  background-color: #ef4444;
+  top: -2px;
+}
+
+.swiper-button-next,
+.swiper-button-prev {
+  background-color: white;
+  background-color: rgba(255, 255, 255, 0.5);
+  right: 10px;
+  padding: 30px;
+  color: #000 !important;
+  fill: black !important;
+  stroke: black !important;
+}
+.foootermenu:hover{
+  @apply text-orange-300 pr-5 transition-all  ;
+}
+.foootermenu::before:hover{
+  @apply bg-orange-300 transition-all ;
+}
+
+.foootermenu{
+  animation: bg-img-slider 10s linear infinite;
+  /*transition: background 300ms ease-in 200ms;*/
+  transition-timing-function: ease-in-out;
+  transition-duration: 1s;
+}
+.foootermenu:hover{
+  transition-duration: 500ms;
+  transition-timing-function:ease-in-out
+}
+.foootermenu::before{
+  position: absolute;
+  content: "";
+  width: 10px;
+  height: 4px;
+  background-color: #D9D9D9;
+  border-radius: 30px;
+  top: 50%;
+  right: 0;
+}
+
+@keyframes colorchange {
+  0% {
+    color: #fdba74;
+  }
+  15% {
+    color: #f9d3aa;
+  }
+  30% {
+    color: #f6d9ba;
+  }
+  45% {
+    color: #f8eadb;
+  }
+  50% {
+    color: #f8f2ec;
+  }
+  65% {
+    color: #fbeee0;
+  }
+  80% {
+    color: #f8dbbf;
+  }
+  90% {
+    color: #f7d2a8;
+  }
+  100% {
+    color: #fdba74;
+  }
+}
+
+.footerlogo{
+    animation: colorchange 1s;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+    animation-play-state: running;
+}
+
+.footer-btn:hover{
+  background: linear-gradient(90deg, #FED7AA 0%, #FDBA74 100%);
+}

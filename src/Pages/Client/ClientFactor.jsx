@@ -3,6 +3,7 @@ import React, { useEffect } from 'react'
 
 export default function ClientFactor() {
     const factorOBJ = JSON.parse(localStorage.getItem("factor"))
+    
     return (
         <div className='w-[895px] mx-auto mt-20 font-Dana'>
             <div className='font-DanaBold text-xl text-center'>{factorOBJ?.factorName}</div>
@@ -28,10 +29,10 @@ export default function ClientFactor() {
                     <span className='bg-gray-400 w-[85%] mt-2 h-px'></span>
                     <span className='font-Dana text-xs text-gray-500'>مبلغ</span>
                 </div>
-                <div className='my-4 divide-dotted divide-y-2 divide-gray-100'>
+                <div className='my-4 divide-dotted divide-y-2 divide-gray-100 '>
                     {
                         factorOBJ?.infos?.map((info, index) => (
-                            <div key={index}>
+                            <div key={index} className='border-b border-gray-300'>
                                 <div className='flex justify-between py-6 gap-x-16 font-DanaMedium text-sm'>
                                     <div className='flex gap-x-1'>
                                         <span>{index + 1}.</span>

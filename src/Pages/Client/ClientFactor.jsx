@@ -1,11 +1,27 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 
 
 export default function ClientFactor() {
     const factorOBJ = JSON.parse(localStorage.getItem("factor"))
-    console.log(factorOBJ.currency)
+    const [isShowPrintButton, setIsShowPrintButten] = useState(true);
+
+    const handleAfterPrint = () => {
+        setIsShowPrintButten(true);
+    };
+    window.onafterprint = handleAfterPrint;
+    
     return (
         <div className='w-[895px] mx-auto mt-20 font-Dana'>
+            <button className={`${isShowPrintButton ? "transition-colors rounded-lg text-sm px-5 py-2.5 text-center font-DanaMedium text-white bg-blue-500" : "hidden"}`}
+                onClick={() => {
+                    setIsShowPrintButten(false)
+                    setTimeout(() => {
+                        window.print()
+                    }, 1000);
+                }}
+            >
+                پرینت
+            </button>
             <div className='font-DanaBold text-xl text-center'>{factorOBJ?.factorName}</div>
             <div className='flex justify-between my-10 p-8 bg-gray-200 rounded-3xl  border-r-4 border-blue-500 font-DanaMedium text-sm'>
                 <div className='flex justify-between gap-x-2'>

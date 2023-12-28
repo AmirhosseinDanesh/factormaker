@@ -79,15 +79,51 @@ export default function ClientFactor() {
                     <p>مبلغ کلی پرداختی</p>
                 </div>
                 <div className='flex justify-between font-DanaMedium text-sm'>
-                    <div className='grid grid-rows-4 grid-flow-col gap-y-6 gap-x-10'>
-                        <span className='text-xs'>نام:</span>
-                        <span className='text-xs'>شماره کارت:</span>
-                        <span className='text-xs'>شماره حساب:</span>
-                        <span className='text-xs'>شماره شبا:</span>
-                        <span>{factorOBJ?.paymentName}</span>
-                        <span>{factorOBJ?.paymentCardNumber}</span>
-                        <span>{factorOBJ?.paymentAccountNumber}</span>
-                        <span>{factorOBJ?.paymentIBANNumber}</span>
+                    <div className='grid gap-y-6 gap-x-10'>
+
+                        {
+                            factorOBJ?.paymentName ?
+                                <div className='flex gap-x-8 text-xs'>
+                                    <span>نام:</span>
+                                    <span>{factorOBJ?.paymentName}</span>
+                                </div>
+                                :
+                                <></>
+
+                        }
+
+                        {
+                            factorOBJ?.paymentCardNumber ?
+                                <div className='flex gap-x-8 text-xs'>
+                                    <span>شماره کارت:</span>
+                                    <span>{factorOBJ?.paymentCardNumber}</span>
+                                </div>
+                                :
+                                <></>
+                        }
+
+                        {
+                            factorOBJ?.paymentAccountNumber ?
+                                <div className='flex gap-x-8 text-xs'>
+                                    <span>شماره حساب:</span>
+                                    <span>{factorOBJ?.paymentAccountNumber}</span>
+                                </div>
+                                :
+                                <></>
+                        }
+
+                        {
+                            factorOBJ?.paymentIBANNumber ?
+                                <div className='flex gap-x-8 text-xs'>
+                                    <span>شماره شبا:</span>
+                                    <span>{factorOBJ?.paymentIBANNumber}</span>
+                                </div>
+                                :
+                                <></>
+                        }
+
+
+
                     </div>
                     <div className='flex flex-col gap-y-6 text-xs font-DanaMedium'>
                         <div className='flex justify-end gap-x-2 '>

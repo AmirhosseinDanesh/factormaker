@@ -95,7 +95,7 @@ export default function Factor() {
                                                         <Field
                                                             as={Input}
                                                             label="مبلغ خدمات"
-                                                            type="text"
+                                                            type="number"
                                                             name={`infos[${index}].infoPrice`}
                                                             placeholder="تومان"
                                                         />

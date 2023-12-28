@@ -83,7 +83,8 @@ export default function Factor() {
                                                             placeholder=""
                                                         />
                                                         <Field
-                                                            as={Input}
+                                                            as="textarea"
+                                                            className="col-start-1 col-end-3 input"
                                                             label="توضیحات"
                                                             type="text"
                                                             name={`infos[${index}].infoDescription`}

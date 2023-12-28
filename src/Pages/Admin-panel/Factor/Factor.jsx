@@ -35,6 +35,7 @@ export default function Factor() {
                     factorName: data?.factorName,
                     exporter: data?.exporter,
                     factorFor: data?.factorFor,
+                    currency : data?.currency,
                     date: data?.date,
                     paymentName: data?.paymentName,
                     paymentCardNumber: data?.paymentCardNumber,
@@ -61,6 +62,13 @@ export default function Factor() {
                                 <Input label="صادر کننده فاکتور" type="text" name="exporter" placeholder="" />
                                 <Input label="فاکتور شده برای :" type="text" name="factorFor" placeholder="" />
                                 <Input label="تاریخ فاکتور" type="text" name="date" placeholder="" />
+                            </div>
+                            <div className='w-1/12'>
+                                <span className='input-label'>واحد پول</span>
+                                <Field className="input" as="select" name="currency">
+                                    <option value="toman">تومان</option>
+                                    <option value="rial">ریال</option>
+                                </Field>
                             </div>
                             {/* <div className='w-1/4'>
                                 <span className='input-label'>واحد پول</span>

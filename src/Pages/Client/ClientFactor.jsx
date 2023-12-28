@@ -44,7 +44,7 @@ export default function ClientFactor() {
                                             :
                                             <div className='flex gap-x-2 flex-shrink-0'>
                                                 <span>{Number(info?.infoPrice).toLocaleString()}</span>
-                                                <span>تومان</span>
+                                                <span>{factorOBJ?.currency == "toman" ? "تومان" : "ریال"}</span>
                                             </div>
                                     }
                                 </div>
@@ -65,7 +65,7 @@ export default function ClientFactor() {
                         {
                             Number(factorOBJ?.infos?.reduce((acc, cur) => acc + cur.infoPrice, 0)).toLocaleString()
                         }
-                        <span className='text-sm'>تومان</span>
+                        <span className='text-sm'>{factorOBJ?.currency == "toman" ? "تومان" : "ریال"}</span>
 
                     </span>
                 </div>
@@ -95,7 +95,7 @@ export default function ClientFactor() {
                                 {
                                     Number(factorOBJ?.infos?.reduce((acc, cur) => acc + cur.infoPrice, 0)).toLocaleString()
                                 }
-                                <span className='text-xs'>تومان</span>
+                                <span className='text-xs'>{factorOBJ?.currency == "toman" ? "تومان" : "ریال"}</span>
 
                             </span>
                         </div>

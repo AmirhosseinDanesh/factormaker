@@ -3,6 +3,7 @@ import { Formik, Form, Field, FieldArray } from 'formik';
 
 import Input from '../../../Components/Input/Input';
 import toast from 'react-hot-toast';
+import { factorValidate } from '../../../Components/Input/Validate';
 
 
 export default function Factor() {
@@ -28,7 +29,7 @@ export default function Factor() {
                 </a>
             </div>
             <Formik
-                validate={""}
+                validate={factorValidate}
                 enableReinitialize
                 initialValues={{
                     factorName: data?.factorName,
@@ -43,6 +44,7 @@ export default function Factor() {
                 }}
                 onSubmit={(values, { setSubmitting }) => {
                     // localStorage.setItem('factor', '');
+                    console.log(values)
                     localStorage.setItem("factor", JSON.stringify(values))
                     toast.success("فاکتور با موفقیت ایحاد شد")
                     setSubmitting(false)
@@ -60,6 +62,13 @@ export default function Factor() {
                                 <Input label="فاکتور شده برای :" type="text" name="factorFor" placeholder="" />
                                 <Input label="تاریخ فاکتور" type="text" name="date" placeholder="" />
                             </div>
+                            {/* <div className='w-1/4'>
+                                <span className='input-label'>واحد پول</span>
+                                <select className='input' name="currency" id="">
+                                    <option className='input' value="toman">تومان</option>
+                                    <option className='input' value="rial">ریال</option>
+                                </select>
+                            </div> */}
                             <div className="grid grid-cols-1 gap-4">
                                 <span className='text-gray-900 dark:text-white'>خدمات</span>
                                 <FieldArray name="infos">
@@ -80,7 +89,7 @@ export default function Factor() {
                                                             label="مبلغ خدمات"
                                                             type="text"
                                                             name={`infos[${index}].infoPrice`}
-                                                            placeholder=""
+                                                            placeholder="تومان"
                                                         />
                                                         <Field
                                                             as="textarea"
@@ -98,7 +107,7 @@ export default function Factor() {
                                                         </span>
                                                     </div>
                                                 ))}
-                                            <span className="flex items-center justify-center" onClick={() => push({ infoName: '', infoPrice: '' , infoDescription:'' })}>
+                                            <span className="flex items-center justify-center" onClick={() => push({ infoName: '', infoPrice: '', infoDescription: '' })}>
                                                 <svg
                                                     xmlns="http://www.w3.org/2000/svg"
                                                     fill="none"

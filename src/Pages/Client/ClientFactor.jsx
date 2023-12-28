@@ -3,6 +3,7 @@ import React, { useEffect } from 'react'
 
 export default function ClientFactor() {
     const factorOBJ = JSON.parse(localStorage.getItem("factor"))
+    console.log(factorOBJ.currency)
     return (
         <div className='w-[895px] mx-auto mt-20 font-Dana'>
             <div className='font-DanaBold text-xl text-center'>{factorOBJ?.factorName}</div>

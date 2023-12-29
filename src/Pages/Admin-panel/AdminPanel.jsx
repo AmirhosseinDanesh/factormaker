@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { Outlet, NavLink } from 'react-router-dom'
 import { useNavigate } from "react-router-dom";
-import swal from 'sweetalert';
+
 
 
 export default function AdminPanel() {

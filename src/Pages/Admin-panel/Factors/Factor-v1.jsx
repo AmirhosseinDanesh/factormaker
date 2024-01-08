@@ -7,11 +7,12 @@ import { factorValidate } from '../../../Components/Input/Validate';
 import swal from 'sweetalert';
 
 
-export default function Factor() {
+export default function FactorV1() {
 
     const [data, setDate] = useState("")
     useEffect(() => {
-        const factorOBJ = JSON.parse(localStorage.getItem("factor"))
+        document.title = 'ساخت فاکتور ورژن 1';
+        const factorOBJ = JSON.parse(localStorage.getItem("factor-v1"))
         setDate(factorOBJ)
     }, [])
 
@@ -24,14 +25,14 @@ export default function Factor() {
                         buttons: ["خیر", "بله"]
                     }).then((res) => {
                         if (res) {
-                            localStorage.removeItem("factor")
+                            localStorage.removeItem("factor-v1")
                             window.location.reload(false);
                         }
                     })
                 }} className='transition-colors rounded-lg text-sm px-5 py-2.5 text-center font-DanaMedium text-white bg-red-500 '>
                     پاک کردن همه اطلاعات
                 </button>
-                <a href='/client-factor' target='_blank' className='transition-colors rounded-lg text-sm px-5 py-2.5 text-center font-DanaMedium text-white bg-green-500 '>
+                <a href='/client-factor-v1' target='_blank' className='transition-colors rounded-lg text-sm px-5 py-2.5 text-center font-DanaMedium text-white bg-green-500 '>
                     دیدن فاکتور
                 </a>
             </div>
@@ -53,7 +54,7 @@ export default function Factor() {
                 onSubmit={(values, { setSubmitting }) => {
                     // localStorage.setItem('factor', '');
                     console.log(values)
-                    localStorage.setItem("factor", JSON.stringify(values))
+                    localStorage.setItem("factor-v1", JSON.stringify(values))
                     toast.success("فاکتور با موفقیت ایحاد شد")
                     setSubmitting(false)
 
@@ -70,7 +71,7 @@ export default function Factor() {
                                 <Input label="فاکتور شده برای :" type="text" name="factorFor" placeholder="" />
                                 <Input label="تاریخ فاکتور" type="text" name="date" placeholder="" />
                             </div>
-                            <div className='w-1/12'>
+                            <div className='w-1/4 md:w-1/10'>
                                 <span className='input-label'>واحد پول</span>
                                 <Field className="input" as="select" name="currency">
                                     <option value="toman">تومان</option>

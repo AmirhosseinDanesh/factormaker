@@ -1,15 +1,18 @@
 import React, { useEffect, useState } from 'react'
 
 
-export default function ClientFactor() {
-    const factorOBJ = JSON.parse(localStorage.getItem("factor"))
+export default function ClientFactorV1() {
+    const factorOBJ = JSON.parse(localStorage.getItem("factor-v1"))
     const [isShowPrintButton, setIsShowPrintButten] = useState(true);
 
     const handleAfterPrint = () => {
         setIsShowPrintButten(true);
     };
     window.onafterprint = handleAfterPrint;
-    
+    useEffect(() => {
+        document.title = 'فاکتور ورژن 1';
+    }, [])
+
     return (
         <div className='w-[895px] mx-auto mt-20 font-Dana'>
             <button className={`${isShowPrintButton ? "transition-colors rounded-lg text-sm px-5 py-2.5 text-center font-DanaMedium text-white bg-blue-500" : "hidden"}`}

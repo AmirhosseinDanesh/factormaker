@@ -10,12 +10,6 @@ export default function AdminPanel() {
 
 
 
-
-  useEffect(() => {
-    document.title = 'ساخت فاکتور';
-  }, [])
-
-
   return (
     <>
       <nav className="fixed top-0 z-50 w-full bg-white border-b border-gray-200 dark:bg-gray-800 dark:border-gray-700">
@@ -88,12 +82,21 @@ export default function AdminPanel() {
                 <svg className="w-5 h-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" >
                   <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 12l8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25" />
                 </svg>
-                <span className="flex-1 font-DanaMedium mr-2 whitespace-nowrap">فاکتور ساز اول</span>
+                <span className="flex-1 font-DanaMedium mr-2 whitespace-nowrap">فاکتور ساده</span>
+              </NavLink>
+            </li>
+            <li>
+              <NavLink to="/p-admin/factor-v2" className={({ isActive }) => (isActive ? "flex items-center p-2 rounded-lg dark:text-white hover:bg-gray-700 dark:hover:bg-gray-700 bg-gray-700 text-white dark:bg-gray-500 " : "flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700")}>
+                <svg className="w-5 h-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" >
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 12l8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25" />
+                </svg>
+                <span className="flex-1 font-DanaMedium mr-2 whitespace-nowrap">فاکتور متوسط</span>
               </NavLink>
             </li>
           </ul>
         </div>
       </aside>
+
       <div className="p-4 sm:mr-64 bg-gray-100 dark:bg-zinc-800">
         <div className="p-4 dark:border-gray-700 mt-14">
           <Outlet />

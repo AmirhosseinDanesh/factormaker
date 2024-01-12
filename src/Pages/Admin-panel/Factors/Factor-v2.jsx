@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { Formik, Form, Field, FieldArray } from 'formik';
-
 import Input from '../../../Components/Input/Input';
 import toast from 'react-hot-toast';
 import { factorValidate } from '../../../Components/Input/Validate';
@@ -8,7 +7,7 @@ import swal from 'sweetalert';
 
 
 export default function FactorV2() {
-
+    
     const [data, setDate] = useState("")
     useEffect(() => {
         document.title = 'ساخت فاکتور ورژن 2';

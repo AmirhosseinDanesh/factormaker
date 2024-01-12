@@ -89,7 +89,7 @@ export default function FactorV2() {
                                         <>
                                             {Array.isArray(values.infos) &&
                                                 values.infos.map((_, index) => (
-                                                    <div key={index} className="grid grid-cols-2 gap-4 pb-4 border-b border-gray-900 dark:border-gray-100">
+                                                    <div key={index} className="grid grid-cols-3 gap-4 pb-4 border-b border-gray-900 dark:border-gray-100">
                                                         <Field
                                                             as={Input}
                                                             label="َشرح کالا"
@@ -102,18 +102,17 @@ export default function FactorV2() {
                                                             label="تعداد"
                                                             type="number"
                                                             name={`infos[${index}].infoProductCount`}
-                                                            placeholder="تومان"
+                                                            placeholder=""
                                                         />
                                                         <Field
-                                                            as="textarea"
-                                                            className="col-start-1 col-end-3 input"
+                                                            as={Input}
                                                             label="قیمت واحد"
                                                             type="number"
                                                             name={`infos[${index}].infoProductPrice`}
                                                             placeholder=""
                                                         />
 
-                                                        <span className='flex justify-center col-span-2 dele text-gray-900 dark:text-white' onClick={() => {
+                                                        <span className='flex justify-center col-span-3 dele text-gray-900 dark:text-white' onClick={() => {
                                                             swal({
                                                                 title: "آیا این مورد را حذف میکنید؟",
                                                                 buttons: ["خیر", "بله"]

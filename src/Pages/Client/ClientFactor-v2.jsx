@@ -59,60 +59,65 @@ export default function ClientFactorV2() {
             </div>
 
             {/* infoos */}
-            <div className='px-4 mt-10 '>
-                <div className='flex justify-between my-4'>
-                    <span className='font-Dana text-xs text-gray-500'>توضیحات</span>
-                    <span className='bg-gray-400 w-[85%] mt-2 h-px'></span>
-                    <span className='font-Dana text-xs text-gray-500'>مبلغ</span>
-                </div>
-                <div className='my-4 divide-y-2 divide-gray-100 '>
-                    {
-                        factorOBJ?.infos?.map((info, index) => (
-                            <div key={index} className=''>
-                                <div className='flex justify-between py-6 gap-x-16 font-DanaMedium text-sm'>
-                                    <div className='flex gap-x-1'>
-                                        <span>{index + 1}.</span>
-                                        <p>{info.infoName}</p>
 
-                                    </div>
-                                    {
-                                        info?.infoPrice === 0 ? "رایگان"
-                                            :
-                                            <div className='flex gap-x-2 flex-shrink-0'>
-                                                <span>{Number(info?.infoPrice).toLocaleString()}</span>
-                                                <span>{factorOBJ?.currency == "toman" ? "تومان" : "ریال"}</span>
-                                            </div>
-                                    }
-                                </div>
-                                <div className='px-5 py-3 text-gray-800 text-xs leading-6'>
-                                    <span>{info.infoDescription}</span>
-                                </div>
-                            </div>
 
-                        ))
-                    }
-                </div>
-                <div className='flex justify-between my-4'>
-                    <span className='bg-gray-400 w-[90%] mt-2 h-px'></span>
-                    <span className='font-DanaBold text-xs text-green-700'>مجموع کل</span>
-                </div>
-                <div className='flex justify-end mt-8'>
-                    <span className='flex gap-x-1 items-center font-DanaBold text-base'>
+            <div class="relative overflow-x-auto mt-8">
+                <table class="w-full text-sm text-left rtl:text-right text-gray-900 ">
+                    <thead class="text-xs text-white uppercase bg-blue-500">
+                        <tr>
+                            <th scope="col" class="px-6 py-3">
+                                ردیف
+                            </th>
+                            <th scope="col" class="px-6 py-3">
+                                شرح کالا
+                            </th>
+                            <th scope="col" class="px-6 py-3">
+                                تعداد
+                            </th>
+                            <th scope="col" class="px-6 py-3">
+                                قیمت ({(factorOBJ?.currency == "toman" ? "تومان" : " ریال")})
+                            </th>
+                            <th scope="col" class="px-6 py-3">
+                                جمع کل
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
                         {
-                            Number(factorOBJ?.infos?.reduce((acc, cur) => acc + cur.infoPrice, 0)).toLocaleString()
+                            factorOBJ?.infos?.map((info, index) => (
+                                <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+                                    <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                        {index + 1}
+                                    </th>
+                                    <td class="px-6 py-4">
+                                        {info.infoProductTitle}
+                                    </td>
+                                    <td class="px-6 py-4">
+                                        {info.infoProductCount}
+                                    </td>
+                                    <td class="px-6 py-4">
+                                        {info.infoProductPrice.toLocaleString()}
+                                    </td>
+                                    <td class="px-6 py-4">
+                                        {(info.infoProductCount * info.infoProductPrice).toLocaleString()}
+                                    </td>
+                                </tr>
+                            ))
                         }
-                        <span className='text-sm'>{factorOBJ?.currency == "toman" ? "تومان" : "ریال"}</span>
-
-                    </span>
-                </div>
+                    </tbody>
+                </table>
             </div>
+
+
 
             <div className='border border-gray-200 w-full mt-8 my-2'></div>
             <div className='flex justify-end items-center'>
                 <div className='w-1/2 flex justify-between items-center'>
                     <span className='bg-blue-500 text-white font-DanaBold pl-12 pr-2 py-3'>مبلغ نهایی فاکتور</span>
                     <div className='py-3 text-xl font-DanaBold'>
-                        <span>{(11000000).toLocaleString()}</span>
+                        {
+                            Number(factorOBJ?.infos?.reduce((acc, cur) => acc + cur.infoProductCount * cur.infoProductPrice , 0)).toLocaleString()
+                        }
                         <span className='mr-2'>{factorOBJ?.currency == "toman" ? "تومان" : "ریال"}</span>
                     </div>
                 </div>
@@ -121,10 +126,10 @@ export default function ClientFactorV2() {
                 <div className='w-1/2 flex justify-between items-center'>
                     <span className='font-DanaBold text-lg'>
                         {
-                            (Num2persian(25000000))
+                            (Num2persian(Number(factorOBJ?.infos?.reduce((acc, cur) => acc + cur.infoProductCount * cur.infoProductPrice , 0))))
                         }
                         {
-                            (factorOBJ?.currency == "toman" ? "تومان" : " ریال")
+                            (factorOBJ?.currency == "toman" ? " تومان" : " ریال")
 
                         }
                     </span>

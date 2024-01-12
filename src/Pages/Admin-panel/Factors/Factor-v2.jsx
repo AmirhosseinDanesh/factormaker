@@ -42,9 +42,12 @@ export default function FactorV2() {
                 initialValues={{
                     customTitle : data?.customTitle,
                     serialNumber : data?.serialNumber,
+                    date : data?.date,
                     exporter : data?.exporter,
                     seller : data?.seller,
+                    currency: data?.currency,
                     customer : data?.customer,
+                    paymentNameDestination : data?.paymentNameDestination,
                     paymentCardNumber : data?.paymentCardNumber,
                     paymentIBANNumber: data?.paymentIBANNumber,
                     infos: data?.infos || [],
@@ -61,16 +64,16 @@ export default function FactorV2() {
                     <div className="mt-5 text-sm md:text-lg">
                         <Form className="mt-5 space-y-4">
                             <div className="flex justify-center">
-                                <Input label="متن دلخواه" type="text" name="factorName" placeholder="به نام خدا" />
+                                <Input label="متن دلخواه" type="text" name="customTitle" placeholder="به نام خدا" />
                             </div>
                             <div className="grid grid-cols-1 md:grid-cols-3 gap-4 ">
-                                <Input label="اسم مجموعه" type="text" name="factorFor" placeholder="" />
-                                <Input label="شماره سریال" type="text" name="exporter" placeholder="" />
+                                <Input label="اسم مجموعه" type="text" name="exporter" placeholder="" />
+                                <Input label="شماره سریال" type="text" name="serialNumber" placeholder="" />
                                 <Input label="تاریخ فاکتور" type="text" name="date" placeholder="" />
                             </div>
                             <div className="grid w-1/2 gap-4 ">
-                                <Input label="فروشنده" type="text" name="exporter" placeholder="" />
-                                <Input label="مشتری" type="text" name="date" placeholder="" />
+                                <Input label="فروشنده" type="text" name="seller" placeholder="" />
+                                <Input label="مشتری" type="text" name="customer" placeholder="" />
                             </div>
                             <div className='w-1/4 md:w-1/10'>
                                 <span className='input-label'>واحد پول</span>
@@ -89,24 +92,24 @@ export default function FactorV2() {
                                                     <div key={index} className="grid grid-cols-2 gap-4 pb-4 border-b border-gray-900 dark:border-gray-100">
                                                         <Field
                                                             as={Input}
-                                                            label="نام خدمات"
+                                                            label="َشرح کالا"
                                                             type="text"
-                                                            name={`infos[${index}].infoName`}
+                                                            name={`infos[${index}].infoProductTitle`}
                                                             placeholder=""
                                                         />
                                                         <Field
                                                             as={Input}
-                                                            label="مبلغ خدمات"
+                                                            label="تعداد"
                                                             type="number"
-                                                            name={`infos[${index}].infoPrice`}
+                                                            name={`infos[${index}].infoProductCount`}
                                                             placeholder="تومان"
                                                         />
                                                         <Field
                                                             as="textarea"
                                                             className="col-start-1 col-end-3 input"
-                                                            label="توضیحات"
-                                                            type="text"
-                                                            name={`infos[${index}].infoDescription`}
+                                                            label="قیمت واحد"
+                                                            type="number"
+                                                            name={`infos[${index}].infoProductPrice`}
                                                             placeholder=""
                                                         />
 
@@ -126,7 +129,7 @@ export default function FactorV2() {
                                                         </span>
                                                     </div>
                                                 ))}
-                                            <span className="flex items-center justify-center" onClick={() => push({ infoName: '', infoPrice: '', infoDescription: '' })}>
+                                            <span className="flex items-center justify-center" onClick={() => push({ infoProductTitle: '', infoProductCount: '', infoProductPrice: '' })}>
                                                 <svg
                                                     xmlns="http://www.w3.org/2000/svg"
                                                     fill="none"
@@ -142,10 +145,9 @@ export default function FactorV2() {
                                     )}
                                 </FieldArray>
                             </div>
-                            <div className="grid grid-cols-1 md:grid-cols-4 gap-4 bg-blue-400 dark:bg-blue-400 p-6 mb-4 rounded-2xl">
-                                <Input label="نام دریافت کننده" type="text" name="paymentName" placeholder="" />
+                            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 bg-blue-400 dark:bg-blue-400 p-6 mb-4 rounded-2xl">
+                                <Input label="نام دریافت کننده" type="text" name="paymentNameDestination" placeholder="" />
                                 <Input label="شماره کارت" type="text" name="paymentCardNumber" placeholder="" />
-                                <Input label="شماره حساب" type="text" name="paymentAccountNumber" placeholder="" />
                                 <Input label="شماره شبا" type="text" name="paymentIBANNumber" placeholder="" />
                             </div>
                             <div className="">
